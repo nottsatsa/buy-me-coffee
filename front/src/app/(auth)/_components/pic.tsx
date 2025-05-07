@@ -6,11 +6,11 @@ export const SidePic = () => {
         alt="iconpng"
         className="absolute max-w- top-8 left-0 sm:left-20"
       />
-      <div className="absolute top-[35%] left-[30%] flex flex-col gap-5 w-1/2">
+      <div className="absolute top-[35%] left-[30%] flex flex-col gap-5 w-fit">
         <img
           src="illustration.png"
           alt="illustration"
-          className="size-40 sm:size-60"
+          className="size-40 sm:size-60 w-full flex justify-center"
         />
         <div>
           <h1 className="text-center text-base sm:text-2xl font-bold">

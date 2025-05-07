@@ -9,7 +9,7 @@ export default function AuthLayout({
   return (
     <html lang="en">
       <body>
-        <div className="flex h-100vh w-100vw border-2">
+        <div className="flex h-100vh w-100vw">
           <SidePic />
           <div className="w-50vw h-full">{children}</div>
         </div>
