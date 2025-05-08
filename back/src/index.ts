@@ -1,9 +1,9 @@
-import exrpess from 'express';
-// import { configDotenv } from 'dotenv';
+import exrpess, { json } from 'express';
+import { userRouter } from './routes/user';
 
-// configDotenv();
 const app = exrpess();
-// const PORT = process.env;
+app.use(json());
+app.use('/user', userRouter);
 const PORT = 8000;
 
 app.get('/', (req, res) => {
