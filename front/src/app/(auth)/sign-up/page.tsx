@@ -8,7 +8,7 @@ export default function Home() {
       sign up
       <Header noName={true} username="" />
       <UsernameInput />
-      <FooterBtn></FooterBtn>
+      <FooterBtn />
     </div>
   );
 }
