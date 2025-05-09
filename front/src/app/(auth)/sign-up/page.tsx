@@ -9,7 +9,7 @@ export default function Home() {
       sign up
       <Header noName={true} username="" />
       {/* <UsernameInput /> */}
-      <Contents />
+      {/* <Contents /> */}
       <FooterBtn />
     </div>
   );
