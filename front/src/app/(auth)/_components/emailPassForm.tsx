@@ -27,9 +27,17 @@ const formSchema = z.object({
 
 interface typesOfEmailPassForm {
   username: String;
+  onContinue: () => void;
+  onEmailSubmit: (email: string) => void;
+  onPasswordSubmit: (password: string) => void;
 }
 
-export const EmailPassForm = ({ username }: typesOfEmailPassForm) => {
+export const EmailPassForm = ({
+  username,
+  onContinue,
+  onEmailSubmit,
+  onPasswordSubmit,
+}: typesOfEmailPassForm) => {
   // 1. Define your form.
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -48,6 +56,9 @@ export const EmailPassForm = ({ username }: typesOfEmailPassForm) => {
 
   const onSubmit = (values: z.infer<typeof formSchema>) => {
     console.log(`email:${values.email}, pass:${values.password}`);
+    onEmailSubmit(values.email);
+    onPasswordSubmit(values.password);
+    onContinue();
   };
 
   // ...

@@ -1,5 +1,5 @@
 'use client';
-
+import React, { useRef, useState } from 'react';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
@@ -24,7 +24,12 @@ const formSchema = z.object({
     .min(4, { message: 'Username must be at least 4 characters.' }),
 });
 
-export const UsernameForm = () => {
+interface UsernameFormProps {
+  onUsernameSubmit: (username: string) => void;
+}
+
+export const UsernameForm = ({ onUsernameSubmit }: UsernameFormProps) => {
+  // const [userUsername, setUserUsername] =
   // 1. Define your form.
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -34,11 +39,13 @@ export const UsernameForm = () => {
   });
 
   const onSubmit = (values: z.infer<typeof formSchema>) => {
-    console.log('onsubmit');
+    // console.log(usernameRef.current?.value);
+    console.log(values.username);
+    onUsernameSubmit(values.username);
   };
 
   // ...
-
+  const usernameRef = useRef<HTMLInputElement>(null);
   return (
     <div className="h-100vh">
       <Header noName={true} username="" />
