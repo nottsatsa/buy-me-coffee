@@ -2,9 +2,11 @@ import exrpess, { json } from 'express';
 import { userRouter } from './routes/user';
 import { authRouter } from './routes/auth';
 import cookieParser from 'cookie-parser';
+import cors from 'cors';
 
 const app = exrpess();
 app.use(json());
+app.use(cors());
 app.use(cookieParser());
 
 app.use('/user', userRouter);
